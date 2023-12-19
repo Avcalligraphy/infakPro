@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base{
+    *{
+        @apply m-0 p-0 border-0 outline-none
+    }
+    :root{
+        --color-bg: #473F97;
+        --transition : all 400ms ease;
+
+        --container-width-lg: 75%;
+        --container-width-md: 86%;
+        --container-width-sm: 90%;
+        --container-width-xl: 100%;
+    }
+    html{
+        @apply scroll-smooth
+    }
+    ::-webkit-scrollbar{
+        @apply hidden
+    }
+    body{
+        font-family: "Poppins", sans-serif;
+        /* background-image: url(/public/assets/Background.png); */
+        background-color: var(--color-bg);
+        /* background-size: cover; */
+        @apply leading-[1.3] text-white
+    }
+}
+
+@layer components {
+    .container{
+        width: var(--container-width-lg);
+        margin: 0 auto;
+    }
+    .navbar {
+    background: rgba(0, 0, 0, 0.3);
+    width: max-content;
+    display: block;
+    padding: 17px 1.7rem;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    border-radius: 3rem;
+    backdrop-filter: blur(15px);
+  }
+    
+}
