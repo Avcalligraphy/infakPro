@@ -32,17 +32,17 @@ export default function Navbar() {
             <div
               className={`${
                 selected === index || isActive
-                  ? "bg-[#473F97] p-[7px] rounded-[7px]"
+                  ? "bg-[#596FB7] p-[7px] rounded-[7px]"
                   : ""
               }`}
             >
-              {item.icon}
+              <i className={`bx ${item.icon} text-[20px] ${selected === index || isActive ? 'text-[#ffff]' : 'text-[#999FBF]'} `}></i>
             </div>
           </NavLink>
         );
       })}
       <div onClick={signOutHandler} className="">
-        <i className="bx bx-log-out text-[20px]"></i>
+        <i className="bx bx-log-out text-[#999FBF] text-[20px]"></i>
       </div>
     </nav>
   );

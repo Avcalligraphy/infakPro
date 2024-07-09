@@ -18,7 +18,7 @@ export default function Button({
       className={`${width} ${height} ${color} border-${borderWidth} ${borderColor} rounded-[50px]`}
     >
       <div
-        className={`flex justify-center items-center h-full font-semibold  ${gap}`}
+        className={`flex justify-center items-center text-[#041F4A] h-full font-semibold  ${gap}`}
       >
         {text}
         {image}

@@ -27,9 +27,8 @@
     body{
         font-family: "Poppins", sans-serif;
         /* background-image: url(/public/assets/Background.png); */
-        background-color: var(--color-bg);
         /* background-size: cover; */
-        @apply leading-[1.3] text-white
+        @apply leading-[1.3] text-white bg-gradient-to-b from-[#0D377B] to-[#04214D]
     }
 }
 
@@ -39,19 +38,19 @@
         margin: 0 auto;
     }
     .navbar {
-    background: rgba(0, 0, 0, 0.3);
-    width: max-content;
+    background: white;
+    width: 100%;
     display: block;
-    padding: 17px 1.7rem;
+    padding: 17px 60px;
     z-index: 2;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 2rem;
+    bottom: 0rem;
     display: flex;
     align-items: center;
-    gap: 38px;
-    border-radius: 3rem;
+    gap: 60px;
+    border-radius: -5px;
     backdrop-filter: blur(15px);
   }
     

@@ -12,7 +12,7 @@ const Friends = ({ data }) => {
         <div className="rounded-b-[30px] bg-[#473F97] px-[24px] pb-[20px] w-full shadow-md shadow-black">
           <div className="flex justify-between mt-[51px]">
             <i className="bx bx-menu-alt-left text-[30px]"></i>
-            <h1 className="text-[24px] font-semibold">Infak Pro</h1>
+            <h1 className="text-[24px] font-semibold">Otocope</h1>
             <i className="bx bx-bell text-[30px]"></i>
           </div>
         </div>

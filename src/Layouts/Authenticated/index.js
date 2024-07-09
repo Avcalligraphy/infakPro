@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar';
-import AlertComponent from '../../components/AlertComponent';
 import { database } from '../../Database/Fire';
 import { onValue, ref } from 'firebase/database';
 
 export default function AuthenticatedUser({children}) {
-  const [data, setData] = useState();
-  // console.log("databaru ",data)
-  const starCountRef = ref(database, `users/alarm/`);
-  useEffect(() => {
-    // Membaca data dari Firebase saat komponen pertama kali dimuat
-    const fetchData = () => {
-      onValue(starCountRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data !== null) {
-          setData(data);
-        }
-      });
-    };
+  // const [data, setData] = useState();
+  // // console.log("databaru ",data)
+  // const starCountRef = ref(database, `users/alarm/`);
+  // useEffect(() => {
+  //   // Membaca data dari Firebase saat komponen pertama kali dimuat
+  //   const fetchData = () => {
+  //     onValue(starCountRef, (snapshot) => {
+  //       const data = snapshot.val();
+  //       if (data !== null) {
+  //         setData(data);
+  //       }
+  //     });
+  //   };
 
-    fetchData();
+  //   fetchData();
 
-    // Membersihkan listener ketika komponen tidak lagi digunakan
-    return () => {
-      const starCountListener = onValue(starCountRef, () => {});
-      starCountListener();
-    };
-  }, [starCountRef]);
+  //   // Membersihkan listener ketika komponen tidak lagi digunakan
+  //   return () => {
+  //     const starCountListener = onValue(starCountRef, () => {});
+  //     starCountListener();
+  //   };
+  // }, [starCountRef]);
+
+  
   return (
     <>
       <div className="mx-auto max-w-screen block">
         <Navbar />
-        <AlertComponent data={data} />
+        {/* <AlertComponent data={data} /> */}
         {/* End Sidebar  */}
 
         {/* Start Content  */}

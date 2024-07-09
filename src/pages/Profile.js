@@ -61,35 +61,41 @@ const Profile = ({dataUser}) => {
   };
   return (
     <AuthenticatedUser>
-      <div className="w-full min-h-screen px-[20px] pt-[72px]">
-        <div className="flex justify-center items-center">
+      <div className="w-full min-h-screen bg-[#EEF1F5] mt-[-48px] pb-[100px] ">
+        <div className="rounded-b-[40px] bg-gradient-to-r from-[#0D377B] to-[#04214D] px-[24px] pt-[25px] h-[221px] pb-[32px] ">
+          <div className="flex justify-between mt-[51px]">
+            <div className='text-[24px] font-bold ' >Profile</div>
+          </div>
+        </div>
+          <div className=' bg-[#EEF1F5] shadow-md shadow-gray-400 rounded-[20px] mx-[25px] px-[27px] pt-[23px] mt-[64px] ' >
+          <div className="flex justify-center items-center mt-[-120px] ">
           <img
             alt="avatar"
             src="/images/avatar.jpg"
             className="rounded-full h-auto w-[150px] object-cover"
           />
         </div>
-        <h1 className="font-semibold text-[17px] text-center my-[20px]">
+        <h1 className="font-regular text-[17px] text-center my-[20px] text-black ">
           {dataUser?.name}
         </h1>
-        <div className="flex justify-center">
+          <div className="flex justify-center">
           <div className="sm:w-[370px] w-full">
             <div className="flex flex-col gap-6">
               <div>
                 <Label
                   forInput="name"
                   value="Name"
-                  text="text-white font-semibold"
+                  text="text-black font-semibold"
                 />
                 <TextInput
-                  color="white"
+                  color="gray-300"
                   type="text"
                   name="name"
                   value={dataUser?.name}
                   placeholder="Your Name"
                   autoComplete="username"
                   isFocused={true}
-                  border="border-white"
+                  border="border-gray-300"
                   // onChange={(e) => setData("email", e.target.value)}
                 />
                 {/* <InputError message={errors.email} className="mt-2" /> */}
@@ -98,7 +104,7 @@ const Profile = ({dataUser}) => {
                 <Label
                   forInput="email"
                   value="Email Address"
-                  text="text-white font-semibold"
+                  text="text-black font-semibold"
                 />
                 <TextInput
                   color="white"
@@ -108,7 +114,7 @@ const Profile = ({dataUser}) => {
                   placeholder="Email Address"
                   autoComplete="username"
                   isFocused={true}
-                  border="border-white"
+                  border="border-gray-300"
                   // onChange={(e) => setData("email", e.target.value)}
                 />
                 {/* <InputError message={errors.email} className="mt-2" /> */}
@@ -117,7 +123,7 @@ const Profile = ({dataUser}) => {
                 <Label
                   forInput="password"
                   value="Kata Sandi Lama"
-                  text="text-white font-semibold"
+                  text="text-black font-semibold"
                 />
                 <TextInput
                   value={currentPassword}
@@ -127,7 +133,7 @@ const Profile = ({dataUser}) => {
                   name="password"
                   placeholder="Kata Sandi Lama"
                   autoComplete="current-password"
-                  border="border-white"
+                  border="border-gray-300"
                   // onChange={(e) => setData("password", e.target.value)}
                 />
               </div>
@@ -135,29 +141,30 @@ const Profile = ({dataUser}) => {
                 <Label
                   forInput="password"
                   value="Kata Sandi Baru"
-                  text="text-white font-semibold"
+                  text="text-black font-semibold"
                 />
                 <TextInput
                   value={pubdet}
                   onChange={(e) => setPubdet(e.target.value)}
                   color="white"
-                  type="password"
+                  type="password"	
                   name="password"
                   placeholder="Kata Sandi Baru"
                   autoComplete="current-password"
-                  border="border-white"
+                  border="border-gray-300"
                 />
               </div>
               <Button
                 onClick={handleUpdate}
                 width="w-full mb-[30px]"
-                text="Update Account"
-                color="bg-white shadow-md shadow-black"
+                text="Save Account"
+                color="bg-[#9EB2F1] shadow-md shadow-[#9EB2F1]"
                 gap="text-black"
               />
             </div>
           </div>
-        </div>
+          </div>
+          </div>
       </div>
     </AuthenticatedUser>
   );

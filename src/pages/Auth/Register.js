@@ -58,7 +58,7 @@ const handleRegister = () => {
     <div className="min-h-screen w-full bg-[#EFF2F6] justify-center">
       <div className="w-full h-[82px] bg-[#473F97] rounded-b-[40px] mb-[80px]"></div>
       <h1 className=" text-center  text-[40px] font-bold text-[#473F97] ">
-        Infak Pro
+        Otocope
       </h1>
       <div className="px-[24px] mt-[20px]">
         <div>

@@ -15,46 +15,46 @@ import { onAuthStateChanged } from 'firebase/auth'
 import Register from './pages/Auth/Register'
 import { onValue, ref } from 'firebase/database'
 import AdminPage from './pages/Admin/AdminPage'
+import Berita from './pages/News/Berita'
+import ArticlePage from './pages/ArticlePage'
 
 const App = () => {
   const [offlineStatus, setOfflineStatus] = useState(!navigator.onLine);
+  const [loginTime, setLoginTime] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [dataUser, setDataUser] = useState();
+  const uid = localStorage.getItem('uid');
+
+  const starCountRef = ref(database, 'users/');
+  const databaseUser = ref(database, `users/${uid}/`);
 
   function handleOfflineStatus() {
     setOfflineStatus(!navigator.onLine);
   }
-  const [loginTime, setLoginTime] = useState(null);
-  const uid = localStorage.getItem("uid");
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const starCountRef = ref(database, `users/`);
-  const databaseUser = ref(database, `users/${uid}/`);
-  const [data, setData] = useState([]);
-  // console.log(data.role)
-  const [dataUser, setDataUser] = useState();
-  // console.log(dataUser?.role)
+
   useEffect(() => {
-    // Membaca status autentikasi pengguna
     const unsubscribeAuth = onAuthStateChanged(
       auth,
       async (authenticatedUser) => {
         if (authenticatedUser) {
           setUser(authenticatedUser.email);
           setLoginTime(Date.now());
-          setLoading(false); // Hentikan loading setelah autentikasi selesai
+          setLoading(false);
         } else {
           setUser(null);
-          setLoading(false); // Hentikan loading jika tidak ada autentikasi
+          setLoading(false);
         }
       }
     );
 
-    // Unsubscribe dari listeners saat komponen dibongkar
     return () => {
       unsubscribeAuth();
     };
   }, []);
+
   useEffect(() => {
-    // Membaca data dari Firebase saat komponen pertama kali dimuat
     const fetchData = () => {
       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
@@ -72,21 +72,18 @@ const App = () => {
 
     fetchData();
     handleOfflineStatus();
-    window.addEventListener("online", handleOfflineStatus);
-    window.addEventListener("offline", handleOfflineStatus);
+    window.addEventListener('online', handleOfflineStatus);
+    window.addEventListener('offline', handleOfflineStatus);
 
-    // Membersihkan listener ketika komponen tidak lagi digunakan
     return () => {
       const starCountListener = onValue(starCountRef, () => {});
       const databaseUserListener = onValue(databaseUser, () => {});
       starCountListener();
-      databaseUserListener()
-      window.removeEventListener("online", handleOfflineStatus);
-      window.removeEventListener("offline", handleOfflineStatus);
+      databaseUserListener();
+      window.removeEventListener('online', handleOfflineStatus);
+      window.removeEventListener('offline', handleOfflineStatus);
     };
-  }, [
-    starCountRef,databaseUser
-  ]);
+  }, [uid]);
   return (
     <BrowserRouter>
   
@@ -96,6 +93,22 @@ const App = () => {
               element={
                 <PrivateRoute isAuthenticated={user} userRole={dataUser?.role}>
                   <Home />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/article"
+              element={
+                <PrivateRoute isAuthenticated={user} userRole={dataUser?.role}>
+                  <ArticlePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/berita"
+              element={
+                <PrivateRoute isAuthenticated={user} userRole={dataUser?.role}>
+                  <Berita />
                 </PrivateRoute>
               }
             />

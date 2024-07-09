@@ -6,6 +6,17 @@ import Map, { Marker, NavigationControl } from "react-map-gl";
 
 function MapsReact() {
   const [height, setHeight] = React.useState("calc(100vh - 100px)");
+  const [lat, setLat] = React.useState('')
+  const [long, setLong] = React.useState('')
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((postion) => {
+      console.log(postion.coords.latitude)
+      console.log(postion.coords.longitude)
+      setLat(postion.coords.latitude)
+      setLong(postion.coords.longitude)
+
+    })
+  }, [])
 
   // React.useEffect(() => {
   //   const handleWindowResize = () => {
@@ -24,8 +35,8 @@ function MapsReact() {
       <Map
         mapLib={maplibregl}
         initialViewState={{
-          longitude: 107.774261,
-          latitude: -6.9292511,
+          longitude: long,
+          latitude: lat,
           zoom: 14,
         }}
         style={{
@@ -38,8 +49,8 @@ function MapsReact() {
       >
         <NavigationControl position="top-left" />
         <Marker
-          longitude={107.774261}
-          latitude={-6.9292511}
+          longitude={long}
+          latitude={lat}
           color="#000000"
         />
       </Map>
