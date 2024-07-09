@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import AlertComponent from "../../components/AlertComponent";
+
 import { database } from "../../Database/Fire";
 import { onValue, ref } from "firebase/database";
 

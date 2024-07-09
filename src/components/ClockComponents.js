@@ -19,7 +19,7 @@ const ClockComponent = () => {
   }).format(currentDate);
 
   return (
-    <h1>{dayOfWeek}, {formattedTime}</h1>
+    <h1>{formattedTime}</h1>
   );
 };
 

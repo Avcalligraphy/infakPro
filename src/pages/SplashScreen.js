@@ -4,10 +4,7 @@ const SplashScreen = () => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-full">
-        <div className='flex justify-center'>
-          <img alt="logo" src="/images/logo.png" className="w-auto h-[150px]" />
-        </div>
-        <h1 className='text-center text-[24px] font-semibold mt-[30px]'>Infak Pro</h1>
+        <h1 className='text-center text-[64px] font-bold mt-[30px]'>Otocope</h1>
       </div>
     </div>
   );

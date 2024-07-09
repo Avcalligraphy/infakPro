@@ -18,7 +18,7 @@ const Login = () => {
     // Set timeout untuk menutup SplashScreen setelah 10 detik
     const splashTimeout = setTimeout(() => {
       setLoading(false);
-    }, 1500); // 10000 milidetik = 10 detik
+    }, 3000); // 10000 milidetik = 10 detik
 
     // Unsubscribe dari listeners saat komponen dibongkar
     return () => {
@@ -89,9 +89,9 @@ const Login = () => {
         <SplashScreen />
       ) : (
         <div className="min-h-screen w-full bg-[#EFF2F6] justify-center">
-          <div className="w-full h-[82px] bg-[#473F97] rounded-b-[40px] mb-[80px]"></div>
-          <h1 className=" text-center  text-[40px] font-bold text-[#473F97] ">
-            Infak Pro
+          <div className="w-full h-[82px] bg-gradient-to-r from-[#0D377B] to-[#04214D] rounded-b-[40px] mb-[80px]"></div>
+          <h1 className=" text-center  text-[40px] font-bold text-[#11235A] ">
+            Otocope
           </h1>
           <div className="px-[24px] mt-[20px]">
             <div>
@@ -109,7 +109,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                border="border-[#7C7C7C]"
+                border="border-[#D1D1D1]"
               />
               {/* <InputError message={errors.email} className="mt-2" /> */}
             </div>
@@ -127,7 +127,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Sandi"
                 autoComplete="current-password"
-                border="border-[#7C7C7C]"
+                border="border-[#D1D1D1]"
               />
             </div>
             <Button
@@ -135,16 +135,16 @@ const Login = () => {
               width="w-full"
               text="Masuk"
               height="h-[50px]"
-              color="bg-[#473F97] shadow-md shadow-[#473F97] mt-[50px]"
+              color="bg-[#9EB2F1] shadow-md shadow-[#9EB2F1] mt-[50px]"
             />
           </div>
-          <div className="flex text-white justify-center items-center h-[55px]  bg-[#473F97] mt-[88px]">
-            <h1 className="text-[14px]">
+          <div className="flex text-white justify-center items-center h-[55px]  bg-gradient-to-r from-[#0D377B] to-[#04214D] mt-[88px]">
+            {/* <h1 className="text-[14px]">
               Belum Punya Akun ?{" "}
               <NavLink to="/register">
                 <span className="font-semibold">Bikin Akun</span>
               </NavLink>
-            </h1>
+            </h1> */}
           </div>
         </div>
       )}

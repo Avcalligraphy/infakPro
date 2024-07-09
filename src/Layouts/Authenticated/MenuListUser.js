@@ -1,23 +1,28 @@
 
 export const navigationLinks = [
+  // {
+  //   link: "/maps",
+  //   icon: <i className=" text-[20px] bx bxs-map "></i>,
+  //   description: "Maps",
+  // },
   {
-    link: "/maps",
-    icon: <i className=" text-[20px] bx bxs-map "></i>,
-    description: "Maps",
-  },
-  {
-    link: "/",
-    icon: <i className=" text-[20px] bx bxs-home-alt-2"></i>,
+    link: "/berita",
+    icon: 'bxs-news',
     description: "Dashboard",
   },
   {
-    link: "/add-friends",
-    icon: <i className=" text-[20px] bx bxs-user-plus"></i>,
-    description: "Friends",
+    link: "/",
+    icon: 'bxs-home-alt-2',
+    description: "Dashboard",
   },
+  // {
+  //   link: "/add-friends",
+  //   icon: <i className=" text-[20px] bx bxs-user-plus"></i>,
+  //   description: "Friends",
+  // },
   {
     link: "/profile",
-    icon: <i className=" text-[20px] bx bxs-user-circle"></i>,
+    icon: 'bxs-user-circle ',
     description: "Profile",
   },
 ];
